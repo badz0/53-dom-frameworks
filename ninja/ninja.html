@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="ninja.css">
+</head>
+<body>
+  <div class="ninja">
+    <img class="ninja__img" src="https://www.stickpng.com/assets/images/580b57fbd9996e24bc43c06e.png" alt="">
+  </div>
+
+  <div class="fire">
+    <select name="fire-method" class="fire__method">
+      <option value="default" selected>Default</option>
+      <option value="superHit">Super hit</option>
+    </select>
+    <label class="fire__speed">
+      Speed
+      <input type="range" name="speed" class="fire__speed-input"
+          min="1" max="10" value="50" step="1">
+    </label>
+    <button class="fire__btn">Fire</button>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
+  <script src="ninja.js"></script>
+</body>
+</html>
