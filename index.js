@@ -1,11 +1,6 @@
 
-
-// document.querySelectorAll('.text').forEach(element => {
-//   element.style.color = 'red';
-// });
-
-
-$('.text').css('color', 'red');
-
-TweenMax.staggerTo('.text', 2, {x: 500, scale: 1.5}, 1);
-TweenMax.to('.text', 0, {clearProps:"all", delay: 10});
+const container = document.getElementById('container')
+console.log(container.children[0]);
+[...container.children].forEach((el) => {
+  el.
+})

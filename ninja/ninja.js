@@ -1,21 +1,33 @@
 const ninja = document.querySelector('.ninja__img');
-const methodSelect = document.querySelector('.fire__method');
+const selectMethod = document.querySelector('.fire__method');
 const speedInput = document.querySelector('.fire__speed-input');
+
+document.querySelector('.fire__btn')
+  .addEventListener('click', fire);
+
 
 
 const methods = {
-  default: (speed) => {
-    TweenMax.to(ninja, .4 * speed, {x: 300, y: 200, rotation: 480, onComplete: () => {
-      TweenMax.from(ninja, 0, {clearProps: 'all', delay: 1});
-    }});
-  },
+  default: (speed) => TweenMax.to(ninja, .1*speed, {
+    rotation: 180, scale: 1.5,
+    onComplete: reset
+  }),
   superHit: (speed) => {
-    TweenMax.to(ninja, .4 * speed, {x: -300, y: 500, scale: 5, rotation: 480});
+    TweenMax.to(ninja, .3*speed, {
+      rotation: 1060, scale: .1,
+      onComplete: reset
+    })
   },
+  jump: (speed) => {
+    TweenMax.to(ninja, .5*speed, {y: -50, ease: Elastic.easeOut.config(1, 0.3), onComplete: reset})
+  }
 }
 
-document.querySelector('.fire__btn')
-  .addEventListener('click', function() {
-    methods[methodSelect.value](speedInput.value);
-    // TweenMax.from(ninja, 0, {clearProps: 'all', delay: 5});
-  });
+function reset() {
+  TweenMax.from(ninja, 0, {clearProps: 'all', delay: 2});
+}
+
+function fire() {
+  methods[selectMethod.value](speedInput.value);
+}
+
